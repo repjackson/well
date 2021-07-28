@@ -85,7 +85,7 @@ Template.home.helpers
         count = 
             Docs.find(
                 model:'post'
-                app:'bc'
+                app:'well'
                 tags:$in:picked_tags.array()
             ).count()
         # console.log 'count', count
@@ -96,7 +96,7 @@ Template.home_item.helpers
         count = 
             Docs.find(
                 model:'post'
-                app:'bc'
+                app:'well'
                 tags:$in:picked_tags.array()
             ).count()
         # console.log 'count', count
@@ -105,7 +105,7 @@ Template.home_item.helpers
         count = 
             Docs.find(
                 model:'post'
-                app:'bc'
+                app:'well'
                 tags:$in:picked_tags.array()
             ).count()
         # console.log 'count', count
@@ -130,7 +130,7 @@ Template.flat_tag_picker.helpers
             Docs.findOne
                 model:'post'
                 tags:$in:[@valueOf()]
-                app:'bc'
+                app:'well'
 
 Template.tag_picker.helpers
     ref_doc: ->
@@ -145,7 +145,7 @@ Template.tag_picker.helpers
             Docs.findOne
                 model:'post'
                 tags:$in:[@title]
-                app:'bc'
+                app:'well'
 
 Template.home.helpers        
     picked_tags: -> picked_tags.array()
@@ -173,7 +173,7 @@ Template.home.helpers
         found = 
             Docs.findOne 
                 model:'post'
-                app:'bc'
+                app:'well'
                 title:@valueOf()
         if found 
             found
@@ -181,7 +181,7 @@ Template.home.helpers
             Docs.findOne
                 model:'post'
                 tags:$in:[@valueOf()]
-                app:'bc'
+                app:'well'
 
     current_post: ->
         Docs.findOne
@@ -190,7 +190,7 @@ Template.home.helpers
     home_items: ->
         match = {
             model:'post'
-            app:'bc'
+            app:'well'
         }
         if picked_tags.array().length > 0
             match.tags = $in:picked_tags.array()

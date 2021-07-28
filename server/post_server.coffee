@@ -4,7 +4,7 @@ Meteor.publish 'post_facets', (
     )->
     self = @
     # match = {}
-    match = {app:'bc'}
+    match = {app:'well'}
     match.model = 'post'
     # match.group_id = Meteor.user().current_group_id
     if picked_tags.length > 0 then match.tags = $all:picked_tags 
@@ -60,7 +60,7 @@ Meteor.publish 'flat_ref_doc', (title)->
     if title
         Docs.find({
             model:'post'
-            app:'bc'
+            app:'well'
             title:title
         }, 
             fields:
@@ -76,7 +76,7 @@ Meteor.publish 'flat_ref_doc', (title)->
         Docs.find {
             model:'post'
             tags:$in:[title]
-            app:'bc'
+            app:'well'
         },
             sort:views:1
             limit:1
@@ -87,7 +87,7 @@ Meteor.publish 'post_docs', (
 
     self = @
     # match = {}
-    match = {app:'bc'}
+    match = {app:'well'}
     match.model = 'post'
     # match.group_id = Meteor.user().current_group_id
     if title_filter and title_filter.length > 1

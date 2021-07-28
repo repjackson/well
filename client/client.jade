@@ -1,5 +1,5 @@
 head
-    title Backcountry
+    title The Well
     meta(name='viewport', content='user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width')
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black')
@@ -46,7 +46,7 @@ template(name='home')
         .ui.padded.stackable.grid
             .sixteen.wide.column
                 // unless current_post
-                img.ui.inline.tiny.image.pointer.zoomer.add_post(src="https://cdn.shopify.com/s/files/1/2432/4293/files/bcplogocirclestyle-2092x2107_1024x1024.png?v=1507416868")
+                img.ui.inline.tiny.image.pointer.zoomer.add_post(src="https://www.csmedia1.com/boulderwell.org/new_black.png")
                 if tag_results
                     each picked_tags
                         +unpick_tag
@@ -106,7 +106,8 @@ template(name='home_item')
     //             i.checkmark.large.link.green.icon.save_chat   
     //             +boolean_edit key='archived' label='archived' icon='archive' direct=true
     // else
-    .ui.fluid.card(class=card_class)
+    // .ui.fluid.card(class=card_class)
+    .ui.fluid.card
         if image_url
             +image_link_view key='image_url' direct=true
         else if image_id
@@ -120,12 +121,12 @@ template(name='home_item')
         //     img.ui.image(src="{{c.url image_id width=500 height=500 gravity='face' crop='fill'}}")
         .content
             // a.ui.header.zoomer.fly_right(href="/post/#{_id}") !{title}
-            a.ui.inline.header.zoomer !{title}
+            a.ui.inline.header !{title}
             
             // .metadata
             //     |#{when}
             //     small {{long_date _timestamp}}
-            .text.zoomer
+            .text
                 |!{body}
             each tags
                 +flat_tag_picker

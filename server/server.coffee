@@ -26,25 +26,6 @@ Docs.allow
         false
         # doc._author_id is userId or 'admin' in Meteor.user().roles
 
-Meteor.publish 'docs', (selected_tags, filter)->
-    # user = Meteor.users.findOne @userId
-    # console.log selected_tags
-    # console.log filter
-    self = @
-    match = {}
-    if Meteor.user()
-        unless Meteor.user().roles and 'dev' in Meteor.user().roles
-            match.view_roles = $in:Meteor.user().roles
-    else
-        match.view_roles = $in:['public']
-
-    # if filter is 'shop'
-    #     match.active = true
-    if selected_tags.length > 0 then match.tags = $all: selected_tags
-    if filter then match.model = filter
-
-    Docs.find match, sort:_timestamp:-1
-
 
 Meteor.methods
     log_view: (doc_id)->
