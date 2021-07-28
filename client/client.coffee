@@ -202,7 +202,7 @@ Template.unpick_tag.helpers
         # console.log @
         
         match = {}
-        match.app = 'bc'
+        match.app = 'well'
         match.model = 'post'
         match.title = @valueOf()
         found = 
